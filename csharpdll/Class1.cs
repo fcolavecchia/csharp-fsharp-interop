@@ -20,6 +20,11 @@ namespace Csharpdll
             Name = name;
             StatusC = status;        
         }
+        public PlanC(Plan.Plan plan){
+            Name = plan.Name;
+            StatusC = plan.Status;        
+        }
+
 
         // public Status.Status status2 = Status.Status.UnApproved;
         public static FSharpResult<string, string> ValidatePlanC( PlanC plan ){

@@ -34,8 +34,18 @@ let main argv =
     let planCompletoC = PlanC("Prostata", Status.Completed)
     let planSinAprobarC = PlanC("Mama",Status.UnApproved)
 
+    let otroPlanCompletoC = PlanC planCompleto
+    let otroPlanSinAprobarC = PlanC planSinAprobar
+
     printfn "resultado = %A" (PlanC.ValidatePlanC planCompletoC)
     printfn "resultado = %A" (PlanC.ValidatePlanC planSinAprobarC)
+
+    printfn "Consumiendo C#, casting de F#"      
+    let otroPlanCompletoC = PlanC planCompleto
+    let otroPlanSinAprobarC = PlanC planSinAprobar
+
+    printfn "resultado = %A" (PlanC.ValidatePlanC otroPlanCompletoC)
+    printfn "resultado = %A" (PlanC.ValidatePlanC otroPlanSinAprobarC)
 
 
 
