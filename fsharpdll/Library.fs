@@ -7,12 +7,16 @@ module math =
     let add a b =
         a + b
 
-
+///
+    /// Simple discriminated union to test in
+    /// C#
 module Status =
 
     type Status = UnApproved | Completed
 
-
+///
+    /// Simple module with method that returns a Result object
+    /// C#
 module Plan = 
 
     type Plan = { Name : string; Status : Status.Status }
