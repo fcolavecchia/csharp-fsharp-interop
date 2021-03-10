@@ -22,7 +22,7 @@ namespace Csharpdll
         }
 
         // public Status.Status status2 = Status.Status.UnApproved;
-        public FSharpResult<string, string> ValidatePlanC( PlanC plan ){
+        public static FSharpResult<string, string> ValidatePlanC( PlanC plan ){
             if(plan.StatusC == Status.Status.Completed)
             // var resultOk = Status.Equals(plan.StatusC,Status.IsCompleted);
                 return FSharpResult<string, string>.NewOk("Completed");

@@ -26,9 +26,17 @@ let main argv =
     let planSinAprobar = { Name = "Mama"; Status = Status.UnApproved}
 
     // let validaPlan = ValidatePlan planCompleto
+    printfn "Consumiendo F#"
     printfn "resultado = %A" (ValidatePlan planCompleto)
     printfn "resultado = %A" (ValidatePlan planSinAprobar)
-      
+
+    printfn "Consumiendo C#"      
+    let planCompletoC = PlanC("Prostata", Status.Completed)
+    let planSinAprobarC = PlanC("Mama",Status.UnApproved)
+
+    printfn "resultado = %A" (PlanC.ValidatePlanC planCompletoC)
+    printfn "resultado = %A" (PlanC.ValidatePlanC planSinAprobarC)
+
 
 
     0 // return an integer exit code

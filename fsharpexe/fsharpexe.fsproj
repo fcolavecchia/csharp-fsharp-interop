@@ -13,7 +13,7 @@
     <Reference Include="csharpdll">
       <HintPath>..\csharpdll\bin\Debug\net5.0\csharpdll.dll</HintPath>
     </Reference>
-    <Reference Include="csharpdll">
+    <Reference Include="fsharpdll">
       <HintPath>..\fsharpdll\bin\Debug\net5.0\fsharpdll.dll</HintPath>
     </Reference>
   </ItemGroup>
