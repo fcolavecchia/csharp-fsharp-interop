@@ -17,6 +17,7 @@ module Person =
 
     let defaultStudent = { Name = "Jimmy Default"; Status = Visa.Student}
 
+    // Person -> Result<Person,string>
     let ValidateStudent person =
 
         match person.Status with 
