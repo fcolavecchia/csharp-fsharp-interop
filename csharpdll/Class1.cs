@@ -20,19 +20,18 @@ namespace Csharpdll
             Name = name;
             StatusC = status;        
         }
-        public PersonC(Person.Person plan){
-            Name = plan.Name;
-            StatusC = plan.Status;        
+        public PersonC(Person.Person person){
+            Name = person.Name;
+            StatusC = person.Status;        
         }
 
 
         // public Visa.Status status2 = Visa.Status.Student;
-        public static FSharpResult<string, string> ValidateStudentC( PersonC plan ){
-            if(plan.StatusC == Visa.Status.Tourist)
-            // var resultOk = Status.Equals(plan.StatusC,Status.IsCompleted);
-                return FSharpResult<string, string>.NewOk("Tourist");
+        public static FSharpResult<PersonC, string> ValidateStudentC( PersonC person ){
+            if(person.StatusC == Visa.Status.Student)
+                return FSharpResult<PersonC, string>.NewOk(person);
             else    
-                return FSharpResult<string, string>.NewError("Unapproved");;
+                return FSharpResult<PersonC, string>.NewError("Tourist");;
         }   
 
     }

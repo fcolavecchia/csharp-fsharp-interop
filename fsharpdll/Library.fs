@@ -17,10 +17,10 @@ module Person =
 
     let defaultStudent = { Name = "Jimmy Default"; Status = Visa.Student}
 
-    let ValidateStudent student =
+    let ValidateStudent person =
 
-        match student.Status with 
-        | Visa.Student -> Ok "Student"
+        match person.Status with 
+        | Visa.Student -> Ok person
         | Visa.Tourist -> Error "Tourist"
 
 

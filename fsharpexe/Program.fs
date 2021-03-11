@@ -12,12 +12,19 @@ let main argv =
     let tourist = { Name = "John Doe"; Status = Status.Tourist}
     let student = { Name = "Mary Eod"; Status = Status.Student}
 
-    // let validaPlan = ValidateStudent tourist
     printfn "Consuming F#"
-    printfn "result = %A" (ValidateStudent tourist)
-    printfn "result = %A" (ValidateStudent student)
+    let resultOk = ValidateStudent student 
+    match resultOk with 
+    | Ok s -> printfn $"{s.Name} is a student" 
+    | Error e -> printfn $"{student.Name} is a {e}" 
 
-    printfn "Consuming C#"      
+    let resultError = ValidateStudent tourist 
+    match resultError with 
+    | Ok s -> printfn $"{s.Name} is a tourist" 
+    | Error e -> printfn $"{tourist.Name} is a {e}" 
+
+    
+    printfn "\nConsuming C#"      
     let touristC = PersonC("John C. Doe", Status.Tourist)
     let studentC = PersonC("Mary C. Eod", Status.Student)
 
