@@ -2,50 +2,37 @@
 
 open System
 open Csharpdll
-open Fsharpdll.Status
-open Fsharpdll.Plan
+open Fsharpdll.Visa
+open Fsharpdll.Person
 
-// Define a function to construct a message to print
-let from whom =
-    sprintf "from %s" whom
-
-let testMathC a b = 
-
-    let c = MathFunctions.add (a, b)
-    c
 
 [<EntryPoint>]
 let main argv =
-    let message = from "F#" // Call the function
-    printfn "Hello world %s" message
 
-    let c = testMathC 3 4
-    printfn "c = %d" c
+    let tourist = { Name = "John Doe"; Status = Status.Tourist}
+    let student = { Name = "Mary Eod"; Status = Status.Student}
 
-    let planCompleto = { Name = "Prostata"; Status = Status.Completed}
-    let planSinAprobar = { Name = "Mama"; Status = Status.UnApproved}
+    // let validaPlan = ValidateStudent tourist
+    printfn "Consuming F#"
+    printfn "result = %A" (ValidateStudent tourist)
+    printfn "result = %A" (ValidateStudent student)
 
-    // let validaPlan = ValidatePlan planCompleto
-    printfn "Consumiendo F#"
-    printfn "resultado = %A" (ValidatePlan planCompleto)
-    printfn "resultado = %A" (ValidatePlan planSinAprobar)
+    printfn "Consuming C#"      
+    let touristC = PersonC("John C. Doe", Status.Tourist)
+    let studentC = PersonC("Mary C. Eod", Status.Student)
 
-    printfn "Consumiendo C#"      
-    let planCompletoC = PlanC("Prostata", Status.Completed)
-    let planSinAprobarC = PlanC("Mama",Status.UnApproved)
+    let anotherTouristC = PersonC tourist
+    let anotherStudentC = PersonC student
 
-    let otroPlanCompletoC = PlanC planCompleto
-    let otroPlanSinAprobarC = PlanC planSinAprobar
+    printfn "result = %A" (PersonC.ValidateStudentC touristC)
+    printfn "result = %A" (PersonC.ValidateStudentC studentC)
 
-    printfn "resultado = %A" (PlanC.ValidatePlanC planCompletoC)
-    printfn "resultado = %A" (PlanC.ValidatePlanC planSinAprobarC)
+    printfn "Consuming C#, casting de F#"      
+    let anotherTouristC = PersonC tourist
+    let anotherStudentC = PersonC student
 
-    printfn "Consumiendo C#, casting de F#"      
-    let otroPlanCompletoC = PlanC planCompleto
-    let otroPlanSinAprobarC = PlanC planSinAprobar
-
-    printfn "resultado = %A" (PlanC.ValidatePlanC otroPlanCompletoC)
-    printfn "resultado = %A" (PlanC.ValidatePlanC otroPlanSinAprobarC)
+    printfn "result = %A" (PersonC.ValidateStudentC anotherTouristC)
+    printfn "result = %A" (PersonC.ValidateStudentC anotherStudentC)
 
 
 

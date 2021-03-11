@@ -12,25 +12,25 @@ namespace Csharpdll
         }
     }
 
-    public class PlanC
+    public class PersonC
     {
         public string Name;
-        public Status.Status StatusC;
-        public PlanC(string name, Status.Status status){
+        public Visa.Status StatusC;
+        public PersonC(string name, Visa.Status status){
             Name = name;
             StatusC = status;        
         }
-        public PlanC(Plan.Plan plan){
+        public PersonC(Person.Person plan){
             Name = plan.Name;
             StatusC = plan.Status;        
         }
 
 
-        // public Status.Status status2 = Status.Status.UnApproved;
-        public static FSharpResult<string, string> ValidatePlanC( PlanC plan ){
-            if(plan.StatusC == Status.Status.Completed)
+        // public Visa.Status status2 = Visa.Status.Student;
+        public static FSharpResult<string, string> ValidateStudentC( PersonC plan ){
+            if(plan.StatusC == Visa.Status.Tourist)
             // var resultOk = Status.Equals(plan.StatusC,Status.IsCompleted);
-                return FSharpResult<string, string>.NewOk("Completed");
+                return FSharpResult<string, string>.NewOk("Tourist");
             else    
                 return FSharpResult<string, string>.NewError("Unapproved");;
         }   

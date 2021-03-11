@@ -10,35 +10,24 @@ namespace csharpexe
     {
         static void Main(string[] args)
         {
-            int a = 1;
-            int b = 2;
-            int c = math.add(a, b);
-            Console.WriteLine($"Add {a:N} + {b:N} = {c:N}");
 
-            // Ejemplo de nueva instancia de clase asociada a un record de F#
-            Plan.Plan planCompleto = new Plan.Plan("Prostata",Status.Status.Completed);             
-            Plan.Plan planSinAprobar = new Plan.Plan("Mama",Status.Status.Completed);
+            // One can define a variable from the DU in F#
+            Visa.Status studentVisa = Visa.Status.Student;
 
-            // También se puede instanciar un objeto de C# a partir de un record de F#
-            Plan.Plan planSinAprobarFSharp = Plan.planSinAprobar;
+            // New instances of Person type from F# module
+            Person.Person tourist = new Person.Person("John C. Doe", Visa.Status.Tourist);             
+            Person.Person student = new Person.Person("Mary C. Eod", studentVisa);
 
-            var resultOk = Plan.ValidatePlan(planSinAprobarFSharp);
-            Console.WriteLine ($"resultado (sin aprobar) = {resultOk.ErrorValue} IsOk: {resultOk.IsOk}  IsError: {resultOk.IsError}");
+            // One can also instantiate a Person directly from a record in the F# module
+            Person.Person defaultStudent = Person.defaultStudent;
 
-            var resultError = Plan.ValidatePlan(planCompleto);
-            Console.WriteLine ($"resultado (aprobado   ) = {resultError.ResultValue} IsOk: {resultError.IsOk}  IsError: {resultError.IsError}");
+            var resultOk = Person.ValidateStudent(defaultStudent);
+            Console.WriteLine ($"result (sin aprobar) = {resultOk.ErrorValue} IsOk: {resultOk.IsOk}  IsError: {resultOk.IsError}");
 
+            var resultError = Person.ValidateStudent(tourist);
+            Console.WriteLine ($"result (aprobado   ) = {resultError.ResultValue} IsOk: {resultError.IsOk}  IsError: {resultError.IsError}");
 
-            // var texto = result.ResultValue switch {
-            //      "Completed" => "Completado",
-            //      "Unapproved" => "Sin Aprobar",
-            //      _ => "Null"
-            // };
-            // Console.WriteLine ($"resultado = {texto}");
-
-            // Definición de una variable status a partir de la DU de FSharp
-            Status.Status status = Status.Status.UnApproved;
-
+            
         }
     }
 }

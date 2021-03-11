@@ -1,32 +1,26 @@
 ﻿namespace Fsharpdll
 
-module math =
-    let hello name =
-        printfn "Hello %s" name
-
-    let add a b =
-        a + b
 
 ///
     /// Simple discriminated union to test in
     /// C#
-module Status =
+module Visa =
 
-    type Status = UnApproved | Completed
+    type Status = Student | Tourist
 
 ///
     /// Simple module with method that returns a Result object
     /// C#
-module Plan = 
+module Person = 
 
-    type Plan = { Name : string; Status : Status.Status }
+    type Person = { Name : string; Status : Visa.Status }
 
-    let planSinAprobar = { Name = "Pulmón"; Status = Status.UnApproved}
+    let defaultStudent = { Name = "Jimmy Default"; Status = Visa.Student}
 
-    let ValidatePlan plan =
+    let ValidateStudent student =
 
-        match plan.Status with 
-        | Status.UnApproved -> Error "Unapproved"
-        | Status.Completed ->  Ok "Completed"
+        match student.Status with 
+        | Visa.Student -> Ok "Student"
+        | Visa.Tourist -> Error "Tourist"
 
 
